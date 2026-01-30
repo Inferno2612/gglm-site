@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>GGLM — Интеграция CRM систем и цифровая трансформация</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ПОДКЛЮЧЕНИЕ CSS-ФАЙЛА (оставил как у тебя) -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+  <!-- ХЕДЕР НА ВСЮ ШИРИНУ -->
+  <header class="site-header">
+    <div class="page header-inner">
+      <div class="logo-block">
+        <div class="logo-mark">
+          <!-- ЛОГОТИП — путь оставил как в твоём файле -->
+          <img src="images/logo.png" alt="Логотип GGLM">
+        </div>
+        <div>
+          <div class="company-name">GGLM</div>
+          <div class="tagline">Интеграция CRM систем и цифровая трансформация бизнеса</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main class="page main-page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">GGLM · CRM & Digital</div>
+        <h1 class="hero-title">Интеграция CRM систем и автоматизация бизнеса</h1>
+        <p class="hero-subtitle">
+          Поможем вам автоматизировать рутинные процессы, и освободить время для чего-то важного.
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="scrollToForm()">Оставить заявку</button>
+          <!-- подсветка зелёным как договаривались -->
+          <div class="hero-note hero-note-accent">Оставьте заявку и сделайте первый шаг навстречу будущему</div>
+        </div>
+
+        <div class="hero-note">
+          <!Наши менеджеры уже ждут вашей заявки!>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Место под картинку — оставил твой текст -->
+        <div class="hero-image-placeholder">
+          <div class="emoji-spot" id="gglm-emoji"></div>
+          <!Вот тут я хочу сделать, чтобы рандомный эмодзи из списка высвечивался в крупном формате>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section class="section section-card section-card-primary">
+      <div class="section-header">
+        <div>
+          <div class="section-title-badge">Преимущества</div>
+          <h2 class="section-title">Преимущества работы с нами</h2>
+        </div>
+        <p class="section-subtitle">
+          <!GGLM>
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-label">Ключевое</div>
+          <div class="benefit-title">Нам важны ваши желания</div>
+          <div class="benefit-text">
+            Индивидальный подход к каждому клиенту.
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-label">Системное</div>
+          <div class="benefit-title">Экономия вашего времени - наш приоритет</div>
+          <div class="benefit-text">
+            Делегируем процессы коду.
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-label">Поддержка</div>
+          <div class="benefit-title">Мы вас не бросим</div>
+          <div class="benefit-text">
+            Всегда придём на помощь, поможем доработать, исправить и починить.
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- ДОПОЛНИТЕЛЬНЫЙ БЛОК ПОСЛЕ "ПРЕИМУЩЕСТВА РАБОТЫ С НАМИ" -->
+    <section class="section section-card section-card-secondary">
+      <div class="section-header">
+        <div>
+          <div class="section-title-badge">Услуги</div>
+          <h2 class="section-title">Что мы предлагаем?</h2>
+        </div>
+        <p class="section-subtitle">
+          <!GGLM>
+        </p>
+      </div>
+
+      <div class="benefits-grid benefits-grid-four">
+        <div class="benefit-card">
+          <div class="benefit-label">Диагностика бизнеса</div>
+          <div class="benefit-title">Детальный анализ вашего бизнеса</div>
+          <div class="benefit-text">
+            Проведём аудит, выявим точки оптимизации.
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-label">Внедрение CRM</div>
+          <div class="benefit-title">Подключаем бизнес к amoCRM</div>
+          <div class="benefit-text">
+            Трансформируем ваши бизнес процессы в автоматизированную систему.
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-label">Автоматизация</div>
+          <div class="benefit-title">Рутина останется в прошлом</div>
+          <div class="benefit-text">
+            Займитесь нужными делами, пока система работает за вас.
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-label">Обучение команды</div>
+          <div class="benefit-title">Экологичное обучение - наш приоритет</div>
+          <div class="benefit-text">
+            Наша задача - не навязать новые технологии, а обучить им.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- СОУЧРЕДИТЕЛИ -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title-badge">Команда</div>
+          <h2 class="section-title">Команда соучредителей</h2>
+        </div>
+        <p class="section-subtitle">
+          <!Lorem ipsum dolor sit amet>
+        </p>
+      </div>
+
+      <div class="founders-grid">
+        <article class="founder-card">
+          <div class="founder-avatar">
+            <!-- твой путь к фото №1 не менял -->
+            <img src="images/founder1.jpg" alt="Соучредитель 1">
+          </div>
+          <div>
+            <div class="founder-meta-name">Григорий Лебедев</div>
+            <div class="founder-meta-role">Специалист по работе с клиентами</div>
+            <div class="founder-meta-email">g.lebedev04@mail.ru</div>
+          </div>
+        </article>
+
+        <article class="founder-card">
+          <div class="founder-avatar">
+            <!-- твой путь к фото №2 не менял -->
+            <img src="images/founder2.jpg" alt="Соучредитель 2">
+          </div>
+          <div>
+            <div class="founder-meta-name">Георгий Могучёнок</div>
+            <div class="founder-meta-role">Технический специалист</div>
+            <div class="founder-meta-email">meodsus@yandex.ru</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ФОРМА ЗАЯВКИ -->
+    <section class="form-section" id="lead-form">
+      <div class="form-layout">
+        <div>
+          <div class="form-title-badge">Заявка</div>
+          <h2 class="form-title">Оставьте заявку для GGLM</h2>
+          <p class="form-text">
+            Мы уже спешим, чтобы вам ответить!
+          </p>
+        </div>
+
+        <form class="form" id="gglm-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Имя и компания</label>
+              <!-- плейсхолдеры окрашиваем через CSS -->
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Иван, компания"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Рабочая почта</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              >
+            </div>
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+7XXXXXXXXXX"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Задача или запрос</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Кратко опишите вашу задачу или напишите любую информацию, которую считаете важной"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="btn-primary">Отправить заявку</button>
+            <div class="form-note">
+              <!тут конечно можно что-то написать, но я не придумал, что именно>
+            </div>
+          </div>
+
+          <div class="form-success" id="form-success">Спасибо! Заявка отправлена.</div>
+          <div class="form-error" id="form-error">Произошла ошибка. Попробуйте ещё раз.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ФУТЕР НА ВСЮ ШИРИНУ -->
+  <footer class="site-footer">
+    <div class="page footer-inner">
+      <span>GGLM · Интеграция CRM систем и цифровая трансформация бизнеса</span>
+      <span>2026</span>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToForm() {
+      const formSection = document.getElementById('lead-form');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhvziJa1UMcmBpt5eWiyaiuZzyEORWBNW-GdvclJVYL8cROQFlSS8i21iWkZSlUnRCJg/exec';
+
+    const form = document.getElementById('gglm-form');
+    const successEl = document.getElementById('form-success');
+    const errorEl = document.getElementById('form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+
+        form.reset();
+        successEl.style.display = 'block';
+      } catch (err) {
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
+  <script>
+     // ===== СЛУЧАЙНЫЙ ЭМОДЗИ В БЛОКЕ =====
+  (function setRandomEmoji() {
+    // сюда вписываешь любые emoji/юникод‑символы
+    const emojis = ["🚀", "🤖", "📈", "⚙️", "💡", "📊", "🤝"];
+
+    const spot = document.getElementById("gglm-emoji");
+    if (!spot || emojis.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * emojis.length);
+    spot.textContent = emojis[randomIndex];
+  })();
+  </script>
+</body>
+</html>
