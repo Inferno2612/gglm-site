@@ -4,17 +4,14 @@
   <meta charset="UTF-8" />
   <title>GGLM — Интеграция CRM систем и цифровая трансформация</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ПОДКЛЮЧЕНИЕ CSS-ФАЙЛА (оставил как у тебя) -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
-  <!-- ХЕДЕР НА ВСЮ ШИРИНУ -->
   <header class="site-header">
     <div class="page header-inner">
       <div class="logo-block">
         <div class="logo-mark">
-          <!-- ЛОГОТИП — путь оставил как в твоём файле -->
           <img src="images/logo.png" alt="Логотип GGLM">
         </div>
         <div>
@@ -24,8 +21,6 @@
       </div>
     </div>
   </header>
-
-  <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main class="page main-page">
     <!-- HERO -->
     <section class="hero">
@@ -38,7 +33,6 @@
 
         <div class="hero-cta">
           <button class="btn-primary" onclick="scrollToForm()">Оставить заявку</button>
-          <!-- подсветка зелёным как договаривались -->
           <div class="hero-note hero-note-accent">Оставьте заявку и сделайте первый шаг навстречу будущему</div>
         </div>
 
@@ -48,7 +42,6 @@
       </div>
 
       <div class="hero-right">
-        <!-- Место под картинку — оставил твой текст -->
         <div class="hero-image-placeholder">
           <div class="emoji-spot" id="gglm-emoji"></div>
           <!Вот тут я хочу сделать, чтобы рандомный эмодзи из списка высвечивался в крупном формате>
@@ -56,7 +49,6 @@
       </div>
     </section>
 
-    <!-- ПРЕИМУЩЕСТВА -->
     <section class="section section-card section-card-primary">
       <div class="section-header">
         <div>
@@ -94,7 +86,6 @@
         </div>
       </div>
     </section>
-     <!-- ДОПОЛНИТЕЛЬНЫЙ БЛОК ПОСЛЕ "ПРЕИМУЩЕСТВА РАБОТЫ С НАМИ" -->
     <section class="section section-card section-card-secondary">
       <div class="section-header">
         <div>
@@ -140,7 +131,6 @@
         </div>
       </div>
     </section>
-    <!-- СОУЧРЕДИТЕЛИ -->
     <section class="section">
       <div class="section-header">
         <div>
@@ -155,7 +145,6 @@
       <div class="founders-grid">
         <article class="founder-card">
           <div class="founder-avatar">
-            <!-- твой путь к фото №1 не менял -->
             <img src="images/founder1.jpg" alt="Соучредитель 1">
           </div>
           <div>
@@ -167,7 +156,6 @@
 
         <article class="founder-card">
           <div class="founder-avatar">
-            <!-- твой путь к фото №2 не менял -->
             <img src="images/founder2.jpg" alt="Соучредитель 2">
           </div>
           <div>
@@ -179,7 +167,6 @@
       </div>
     </section>
 
-    <!-- ФОРМА ЗАЯВКИ -->
     <section class="form-section" id="lead-form">
       <div class="form-layout">
         <div>
@@ -194,7 +181,6 @@
           <div class="form-row">
             <div class="field">
               <label for="name">Имя и компания</label>
-              <!-- плейсхолдеры окрашиваем через CSS -->
               <input
                 type="text"
                 id="name"
@@ -252,7 +238,6 @@
     </section>
   </main>
 
-  <!-- ФУТЕР НА ВСЮ ШИРИНУ -->
   <footer class="site-footer">
     <div class="page footer-inner">
       <span>GGLM · Интеграция CRM систем и цифровая трансформация бизнеса</span>
@@ -296,9 +281,7 @@
     });
   </script>
   <script>
-     // ===== СЛУЧАЙНЫЙ ЭМОДЗИ В БЛОКЕ =====
   (function setRandomEmoji() {
-    // сюда вписываешь любые emoji/юникод‑символы
     const emojis = ["🚀", "🤖", "📈", "⚙️", "💡", "📊", "🤝"];
 
     const spot = document.getElementById("gglm-emoji");
