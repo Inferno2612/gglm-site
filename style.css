@@ -90,6 +90,7 @@ a {
   margin-top: 32px;
   background: linear-gradient(90deg, #fef3c7 0, #2bb52b 40%, #e0f2fe 100%);
   border-top: 1px solid #e5e7eb;
+  padding: 0 8px; /* добавили отступы слева/справа */
 }
 
 .footer-inner {
@@ -568,6 +569,10 @@ a {
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+    .site-footer {
+    padding: 0 10px;
   }
 }
 
