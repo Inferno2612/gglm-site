@@ -1,300 +1,384 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <title>GGLM — Интеграция amoCRM и цифровая трансформация</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGLM | Интеграция и Разработка</title>
+    
+    <!-- === FAVICON (ИКОНКА ВО ВКЛАДКЕ) === -->
+    <link rel="icon" type="image/svg+xml" href="images/logo.png">
+    <!-- Для старых браузеров можно добавить PNG версию -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gglm: {
+                            black: '#050505',
+                            dark: '#0f0f0f',
+                            card: '#161616',
+                            green: '#00ff88',
+                            greenDim: 'rgba(0, 255, 136, 0.1)',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, rgba(5, 5, 5, 1) 70%)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 255, 136, 0.15);
+            border-color: #00ff88;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00ff88;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .logo-svg path {
+            fill: #00ff88 !important;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0f0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ff88;
+        }
+    </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="page header-inner">
-      <div class="logo-block">
-        <div class="logo-mark">
-          <img src="images/logo.png" alt="Логотип GGLM">
-        </div>
-        <div>
-          <div class="company-name">GGLM</div>
-          <div class="tagline">Интеграция amoCRM и цифровая трансформация бизнеса</div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <main class="page main-page">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <div class="hero-kicker">GGLM · CRM & Digital</div>
-        <h1 class="hero-title">Интеграция amoCRM и автоматизация бизнеса</h1>
-        <p class="hero-subtitle">
-          Поможем вам автоматизировать рутинные процессы, и освободить время для чего-то важного.
-        </p>
+<body class="antialiased overflow-x-hidden">
 
-        <div class="hero-cta">
-          <button class="btn-primary" onclick="scrollToForm()">Оставить заявку</button>
-          <div class="hero-note hero-note-accent">Оставьте заявку и сделайте первый шаг навстречу будущему</div>
-        </div>
-
-        <div class="hero-note">
-          <!Наши менеджеры уже ждут вашей заявки!>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="hero-image-placeholder">
-          <div class="emoji-spot" id="gglm-emoji"></div>
-          <!Вот тут я хочу сделать, чтобы рандомный эмодзи из списка высвечивался в крупном формате>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-card section-card-primary">
-      <div class="section-header">
-        <div>
-          <div class="section-title-badge">Преимущества</div>
-          <h2 class="section-title">Преимущества работы с нами</h2>
-        </div>
-        <p class="section-subtitle">
-          <!GGLM>
-        </p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-label">Ключевое</div>
-          <div class="benefit-title">Нам важны ваши желания</div>
-          <div class="benefit-text">
-            Индивидальный подход к каждому клиенту.
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-label">Системное</div>
-          <div class="benefit-title">Экономия вашего времени - наш приоритет</div>
-          <div class="benefit-text">
-            Делегируем процессы коду.
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-label">Поддержка</div>
-          <div class="benefit-title">Всегда на связи</div>
-          <div class="benefit-text">
-            Мы за живое общение с клиентами.
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section section-card section-card-secondary">
-      <div class="section-header">
-        <div>
-          <div class="section-title-badge">Услуги</div>
-          <h2 class="section-title">Что мы предлагаем?</h2>
-        </div>
-        <p class="section-subtitle">
-          <!GGLM>
-        </p>
-      </div>
-
-      <div class="benefits-grid benefits-grid-four">
-        <div class="benefit-card">
-          <div class="benefit-label">Диагностика бизнеса</div>
-          <div class="benefit-title">Детальный анализ вашего бизнеса</div>
-          <div class="benefit-text">
-            Проведём аудит, выявим точки оптимизации.
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-label">Внедрение CRM</div>
-          <div class="benefit-title">Подключаем бизнес к amoCRM</div>
-          <div class="benefit-text">
-            Трансформируем ваши бизнес процессы в автоматизированную систему.
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-label">Автоматизация</div>
-          <div class="benefit-title">Рутина останется в прошлом</div>
-          <div class="benefit-text">
-            Займитесь нужными делами, пока система работает за вас.
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-label">Обучение команды</div>
-          <div class="benefit-title">Экологичное обучение - наш приоритет</div>
-          <div class="benefit-text">
-            Наша задача - не навязать новые технологии, а обучить им.
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="section-header">
-        <div>
-          <div class="section-title-badge">Команда</div>
-          <h2 class="section-title">Наша команда</h2>
-        </div>
-        <p class="section-subtitle">
-          <!Lorem ipsum dolor sit amet>
-        </p>
-      </div>
-
-      <div class="founders-grid">
-        <article class="founder-card">
-          <div class="founder-avatar">
-            <img src="images/founder1.jpg" alt="Соучредитель 1">
-          </div>
-          <div>
-            <div class="founder-meta-name">Григорий Лебедев</div>
-            <div class="founder-meta-role">Специалист по работе с клиентами</div>
-            <div class="founder-meta-email">g.lebedev04@mail.ru</div>
-          </div>
-        </article>
-
-        <article class="founder-card">
-          <div class="founder-avatar">
-            <img src="images/founder2.jpg" alt="Соучредитель 2">
-          </div>
-          <div>
-            <div class="founder-meta-name">Георгий Могучёнок</div>
-            <div class="founder-meta-role">Технический специалист</div>
-            <div class="founder-meta-email">meodsus@yandex.ru</div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="form-section" id="lead-form">
-      <div class="form-layout">
-        <div>
-          <div class="form-title-badge">Заявка</div>
-          <h2 class="form-title">Оставьте заявку для GGLM</h2>
-          <p class="form-text">
-            Мы уже спешим, чтобы вам ответить!
-          </p>
-        </div>
-
-        <form class="form" id="gglm-form">
-          <div class="form-row">
-            <div class="field">
-              <label for="name">Имя и компания</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Иван, компания"
-                required
-              >
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-gglm-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    
+                    <!-- ЛОГОТИП GGLM -->
+                    <div class="h-10 w-10 logo-svg">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 366 347" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M119,158.7c-26.3-2-51,1.6-72.2,17.9c-21.5,16.5-32.4,38.7-34.2,65.4c-2.7,40.4,23.7,77.1,62.7,87.6
+                                    c41.2,11.1,78.4-9.7,95.2-34.7c-5.7-6.5-11.4-13.1-16.7-19.2c-6.8,6.5-12.6,13.2-19.6,18.4c-24.4,18.3-61.7,14.6-80.3-7.9
+                                    c-16.5-20-19.4-42.5-8.7-65.8c10.7-23.2,29.9-35,55.7-35.2c37.8-0.2,75.7,0,113.5,0c1.6,0,3.2,0,6,0c-2,7-2.8,13.4-5.6,18.9
+                                    c-3.7,7.4-8.8,14-13.2,21c-0.9,1.5-2.2,4.2-1.5,5c5,6.5,10.4,12.7,15.9,19.2c16.8-18.6,28.8-38.9,31.1-64.4
+                                    c25.8,1.9,50-1.6,70.9-17.4c21-15.9,32.7-37.2,35.3-63.4c3.8-39.6-19.8-76.3-57.3-88.9C256.5,2,216,18.7,195,47.8
+                                    c5.6,6.6,11.3,13.2,17.1,20c6.3-6.2,11.8-12.7,18.4-18c18.8-15,47.3-16.5,68.1-4c20.5,12.3,31.7,37.3,27.4,61.3
+                                    c-5.5,30.4-29.3,50.8-60.5,51c-38.5,0.3-77,0-115.5,0c-1.1,0-2.2-0.2-3.6-0.4c1.2-17.4,9.7-30.9,21-43.4
+                                    c-6.1-6.9-11.8-13.6-17.8-20.4C132.4,112.3,121.1,133,119,158.7z M303,197.7c1.5,1.4,2.9,2.6,4.2,3.9
+                                    c21.3,19.7,25.9,52.3,10.8,76.5c-20.7,33.4-69,37.5-95.3,7.5c-22.6-25.7-44.2-52.3-66.4-78.5c-1.1-1.3-2.7-3-4.1-3
+                                    c-9.1-0.3-18.2-0.1-29.1-0.1c5,8.4,8.5,16.2,13.8,22.6c22,26.5,43.9,53.1,67,78.6c20.4,22.5,47,31.4,76.9,26.7
+                                    c50.4-7.9,81.7-54.2,71.2-104.1c-3.6-17-11.6-31.6-23.6-43.7C319.7,188.6,311.6,193,303,197.7z M242,139.4
+                                    c-3.6-9.5-8.6-17.5-14.7-24.7c-20.8-24.5-41.3-49.2-62.3-73.4c-23.3-26.8-53.1-36.2-87.4-28.2C29.5,24.3,2.1,72.7,15.6,120.7
+                                    c4.2,14.8,11.6,27.7,22.2,38.5c8.7-4.6,17-9,25.4-13.4c-1.6-1.4-2.9-2.6-4.3-3.9C37.8,122,33.2,88.8,48.4,64.8
+                                    c21.3-33.7,69.9-36.7,96.4-5.7c22,25.6,43.6,51.5,65.4,77.3c1.1,1.3,2.8,2.8,4.3,2.8C223.4,139.5,232.4,139.4,242,139.4z"/>
+                                    <path d="M119,158.7c2-25.7,13.4-46.4,30.5-64.7c5.9,6.8,11.7,13.4,17.8,20.4c-11.2,12.4-19.8,26-21,43.4c1.4,0.2,2.5,0.4,3.6,0.4
+                                    c38.5,0,77,0.3,115.5,0c31.2-0.2,55-20.6,60.5-51c4.4-24-6.8-49-27.4-61.3c-20.8-12.4-49.4-11-68.1,4c-6.6,5.3-12.1,11.8-18.4,18
+                                    c-5.8-6.8-11.4-13.4-17.1-20C216,18.7,256.5,2,296,15.3c37.5,12.6,61.1,49.3,57.3,88.9c-2.5,26.1-14.2,47.5-35.3,63.4
+                                    c-20.9,15.8-45.2,19.3-70.9,17.4c-2.3,25.5-14.3,45.7-31.1,64.4c-5.5-6.5-10.9-12.7-15.9-19.2c-0.6-0.8,0.6-3.5,1.5-5
+                                    c4.4-7,9.5-13.6,13.2-21c2.7-5.5,3.6-11.9,5.6-18.9c-2.8,0-4.4,0-6,0c-37.8,0-75.7-0.1-113.5,0c-25.8,0.1-45,11.9-55.7,35.2
+                                    c-10.7,23.2-7.8,45.8,8.7,65.8c18.5,22.5,55.8,26.2,80.3,7.9c7-5.2,12.8-12,19.6-18.4c5.4,6.2,11.1,12.7,16.7,19.2
+                                    c-16.8,25.1-54,45.8-95.2,34.7c-39-10.5-65.5-47.2-62.7-87.6c1.8-26.7,12.7-48.9,34.2-65.4C68.1,160.3,92.8,156.7,119,158.7z"/>
+                                    <path d="M303,197.7c8.6-4.6,16.8-9,25.4-13.7c11.9,12.1,20,26.7,23.6,43.7c10.4,49.9-20.8,96.2-71.2,104.1
+                                    c-29.9,4.7-56.6-4.2-76.9-26.7c-23.1-25.5-45-52.1-67-78.6c-5.3-6.4-8.8-14.2-13.8-22.6c11,0,20.1-0.1,29.1,0.1c1.4,0,3,1.7,4.1,3
+                                    c22.1,26.2,43.8,52.7,66.4,78.5c26.3,30,74.6,25.9,95.3-7.5c15.1-24.3,10.5-56.8-10.8-76.5C305.8,200.3,304.5,199.1,303,197.7z"/>
+                                    <path d="M242,139.4c-9.6,0-18.6,0.1-27.6-0.1c-1.5,0-3.2-1.6-4.3-2.8c-21.8-25.7-43.5-51.6-65.4-77.3c-26.6-31-75.2-28-96.4,5.7
+                                    C33.2,88.8,37.8,122,59,141.9c1.3,1.2,2.7,2.4,4.3,3.9c-8.5,4.5-16.7,8.8-25.4,13.4c-10.6-10.8-18-23.7-22.2-38.5
+                                    C2.1,72.7,29.5,24.3,77.6,13.1c34.3-8,64.1,1.5,87.4,28.2c21.1,24.2,41.6,48.9,62.3,73.4C233.5,121.9,238.4,129.8,242,139.4z"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    
+                    <span class="font-bold text-2xl tracking-tighter text-white">GGLM<span class="text-gglm-green">.</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#services" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Услуги</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">О нас</a>
+                        <a href="#lead-form" class="bg-gglm-green text-black hover:bg-white px-5 py-2 rounded-full text-sm font-bold transition-all">Связаться</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="email">Рабочая почта</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              >
+        </div>
+        <div class="hidden md:hidden bg-gglm-dark border-b border-white/10" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Услуги</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">О нас</a>
+                <a href="#lead-form" class="text-gglm-green block px-3 py-2 rounded-md text-base font-bold">Связаться</a>
             </div>
-            <div class="field">
-              <label for="phone">Телефон</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="+7XXXXXXXXXX"
-                required
-              >
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-hero-pattern">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20">
+            <div class="absolute top-10 left-10 w-72 h-72 bg-gglm-green rounded-full mix-blend-screen filter blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-30"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Интеграция <span class="text-gglm-green text-glow">будущего</span><br>в ваш бизнес сегодня
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 mb-10">
+                Мы автоматизируем рутину, внедряем <span class="text-white font-semibold">amoCRM</span>, создаем умных <span class="text-white font-semibold">Telegram-ботов</span> и обучаем команды работать эффективнее.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="#lead-form" class="px-8 py-4 bg-gglm-green text-black font-bold rounded-full hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,136,0.4)]">
+                    Обсудить проект
+                </a>
+                <a href="#services" class="px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-all">
+                    Наши услуги
+                </a>
             </div>
-          </div>
-
-          <div class="field">
-            <label for="message">Задача или запрос</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Кратко опишите вашу задачу или напишите любую информацию, которую считаете важной"
-              required
-            ></textarea>
-          </div>
-
-          <div class="form-footer">
-            <button type="submit" class="btn-primary">Отправить заявку</button>
-            <div class="form-note">
-              <!тут конечно можно что-то написать, но я не придумал, что именно>
-            </div>
-          </div>
-
-          <div class="form-success" id="form-success">Спасибо! Заявка отправлена.</div>
-          <div class="form-error" id="form-error">Произошла ошибка. Попробуйте ещё раз.</div>
-        </form>
-      </div>
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="page footer-inner">
-      <span>GGLM · Интеграция CRM систем и цифровая трансформация бизнеса</span>
-      <span>2026</span>
-    </div>
-  </footer>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gglm-dark border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Комплексные <span class="text-gglm-green">решения</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Мы не просто пишем код. Мы выстраиваем процессы, которые экономят ваше время и деньги.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-gglm-card p-8 rounded-2xl border border-white/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-gglm-greenDim rounded-xl flex items-center justify-center mb-6 group-hover:bg-gglm-green transition-colors">
+                        <svg class="w-8 h-8 text-gglm-green group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Интеграция amoCRM</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Настройка воронок, автоматизация сделок, интеграция с телефонией и мессенджерами.</p>
+                </div>
+                <div class="card-hover bg-gglm-card p-8 rounded-2xl border border-white/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-gglm-greenDim rounded-xl flex items-center justify-center mb-6 group-hover:bg-gglm-green transition-colors">
+                        <svg class="w-8 h-8 text-gglm-green group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Telegram-боты</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Разработка ботов любой сложности: от автоответчиков до CRM-систем в мессенджере.</p>
+                </div>
+                <div class="card-hover bg-gglm-card p-8 rounded-2xl border border-white/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-gglm-greenDim rounded-xl flex items-center justify-center mb-6 group-hover:bg-gglm-green transition-colors">
+                        <svg class="w-8 h-8 text-gglm-green group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Сайты-визитки</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Стильные, быстрые и адаптивные сайты. Современный дизайн, который продает.</p>
+                </div>
+                <div class="card-hover bg-gglm-card p-8 rounded-2xl border border-white/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-gglm-greenDim rounded-xl flex items-center justify-center mb-6 group-hover:bg-gglm-green transition-colors">
+                        <svg class="w-8 h-8 text-gglm-green group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Цифровая трансформация</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Внедрение современных технологий в бизнес-процессы. Аудит и оптимизация.</p>
+                </div>
+                <div class="card-hover bg-gglm-card p-8 rounded-2xl border border-white/5 transition-all duration-300 group md:col-span-2 lg:col-span-2">
+                    <div class="w-14 h-14 bg-gglm-greenDim rounded-xl flex items-center justify-center mb-6 group-hover:bg-gglm-green transition-colors">
+                        <svg class="w-8 h-8 text-gglm-green group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Обучение персонала</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Тренинги по работе с amoCRM и внедренными решениями. Ваши сотрудники начнут использовать технологии на 100%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    function scrollToForm() {
-      const formSection = document.getElementById('lead-form');
-      if (formSection) {
-        formSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gglm-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Почему <span class="text-gglm-green">GGLM</span>?</h2>
+                    <p class="text-gray-400 mb-6 text-lg">Мы не просто разработчики. Мы — ваши партнеры в цифровом развитии.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-300">
+                            <span class="w-2 h-2 bg-gglm-green rounded-full mr-3"></span>Прозрачность на всех этапах
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <span class="w-2 h-2 bg-gglm-green rounded-full mr-3"></span>Использование передовых стеков
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <span class="w-2 h-2 bg-gglm-green rounded-full mr-3"></span>Фокус на результате, а не на коде
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gglm-card p-6 rounded-xl border border-white/5 text-center">
+                        <div class="text-4xl font-bold text-gglm-green mb-2">100%</div>
+                        <div class="text-sm text-gray-400">Погружение в задачу</div>
+                    </div>
+                    <div class="bg-gglm-card p-6 rounded-xl border border-white/5 text-center">
+                        <div class="text-4xl font-bold text-gglm-green mb-2">24/7</div>
+                        <div class="text-sm text-gray-400">Поддержка систем</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbym9Kuut7PMv1Isz5IpW7I67yUkij3ESkQvK0XnbjcPZHxTmYEDAIUDLlQQEgwQ_or82w/exec';
+    <!-- Contact Form Section -->
+    <section id="lead-form" class="py-20 bg-gglm-dark border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gglm-card rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-4">Готовы <span class="text-gglm-green">автоматизировать</span> бизнес?</h2>
+                    <p class="text-gray-400">Оставьте заявку, и мы обсудим ваш проект в ближайшее время.</p>
+                </div>
+                <div id="form-success" class="hidden mb-6 p-4 bg-gglm-green/10 border border-gglm-green text-gglm-green rounded-lg text-center font-medium"></div>
+                <div id="form-error" class="hidden mb-6 p-4 bg-red-500/10 border border-red-500 text-red-500 rounded-lg text-center font-medium">Произошла ошибка при отправке.</div>
+                <form id="gglm-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Ваше имя</label>
+                            <input type="text" name="name" id="name" required class="w-full bg-gglm-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gglm-green transition-colors" placeholder="Иван">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">Телефон / Telegram</label>
+                            <input type="text" name="phone" id="phone" required class="w-full bg-gglm-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gglm-green transition-colors" placeholder="+7 (999) ...">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                        <input type="email" name="email" id="email" class="w-full bg-gglm-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gglm-green transition-colors" placeholder="example@mail.ru">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-400 mb-2">О задаче</label>
+                        <textarea name="message" id="message" rows="4" class="w-full bg-gglm-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gglm-green transition-colors" placeholder="Нам нужно внедрить CRM..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gglm-green text-black font-bold py-4 rounded-lg hover:bg-white transition-all shadow-lg">
+                        Отправить заявку
+                    </button>
+                    <p class="text-xs text-gray-500 text-center">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    const form = document.getElementById('gglm-form');
-    const successEl = document.getElementById('form-success');
-    const errorEl = document.getElementById('form-error');
+    <!-- Footer -->
+    <footer class="bg-gglm-black border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-xl tracking-tighter text-white">GGLM<span class="text-gglm-green">.</span></span>
+            </div>
+            <div class="text-gray-500 text-sm">&copy; 2026 GGLM. Все права защищены.</div>
+            <div class="flex space-x-6">
+                <a href="https://t.me/GGLMdev" class="text-gray-400 hover:text-gglm-green transition-colors">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.198-.054-.306-.346-.106l-6.4 4.02-2.76-.86c-.6-.19-.612-.6.125-.89l10.782-4.156c.5-.187.937.114.785.934z"/>
+                    </svg>
+                </a>
+                <a href="ТУТ НУЖНО БУДЕТ ДОБАВИТЬ ССЫЛКУ НА ВОТСАП" class="text-gray-400 hover:text-gglm-green transition-colors">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbym9Kuut7PMv1Isz5IpW7I67yUkij3ESkQvK0XnbjcPZHxTmYEDAIUDLlQQEgwQ_or82w/exec';
+        const form = document.getElementById('gglm-form');
+        const successEl = document.getElementById('form-success');
+        const errorEl = document.getElementById('form-error');
 
-      successEl.textContent = 'Отправляем заявку...';
-      successEl.style.display = 'block';
-      errorEl.style.display = 'none';
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            successEl.textContent = 'Отправляем заявку...';
+            successEl.style.display = 'block';
+            errorEl.style.display = 'none';
+            const formData = new FormData(form);
 
-      const formData = new FormData(form);
-
-      try {
-        fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: formData
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+                form.reset();
+                successEl.textContent = 'Спасибо! Заявка отправлена.';
+                setTimeout(() => {
+                    successEl.style.display = 'none';
+                }, 5000);
+            } catch (err) {
+                successEl.style.display = 'none';
+                errorEl.style.display = 'block';
+            }
         });
 
-        setTimeout(() => {
-          form.reset();
-          successEl.textContent = 'Спасибо! Заявка отправлена.';
-        }, 400);
-      } catch (err) {
-        successEl.style.display = 'none';
-        errorEl.style.display = 'block';
-      }
-    });
-  </script>
-  <script>
-  (function setRandomEmoji() {
-    const emojis = ["🚀", "🤖", "📈", "⚙️", "💡", "📊", "🤝"];
-
-    const spot = document.getElementById("gglm-emoji");
-    if (!spot || emojis.length === 0) return;
-
-    const randomIndex = Math.floor(Math.random() * emojis.length);
-    spot.textContent = emojis[randomIndex];
-  })();
-  </script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
+<!-- === FAVICON (ИКОНКА ВО ВКЛАДКЕ) === -->
+<link rel="icon" type="image/svg+xml" href="images/logo3.svg">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+
